@@ -1,9 +1,18 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Smartphone, Building, Calculator, Users } from "lucide-react";
 import heroImage from "@/assets/hero-ar-construction.jpg";
+import ARBuilderModal from "./ARBuilderModal";
+import DemoModal from "./DemoModal";
 
 const Hero = () => {
+  const [isARBuilderOpen, setIsARBuilderOpen] = useState(false);
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
+
   return (
+    <>
+      <ARBuilderModal open={isARBuilderOpen} onOpenChange={setIsARBuilderOpen} />
+      <DemoModal open={isDemoOpen} onOpenChange={setIsDemoOpen} />
     <section className="relative min-h-screen bg-gradient-hero flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-secondary/90 to-secondary opacity-90" />
       
@@ -21,12 +30,21 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button variant="hero" size="lg" className="shadow-glow">
+              <Button 
+                variant="hero" 
+                size="lg" 
+                className="shadow-glow"
+                onClick={() => setIsARBuilderOpen(true)}
+              >
                 <Smartphone className="mr-2 h-5 w-5" />
                 Start AR Builder
               </Button>
-              <Button variant="secondary" size="lg">
-                View Properties
+              <Button 
+                variant="secondary" 
+                size="lg"
+                onClick={() => setIsDemoOpen(true)}
+              >
+                Watch Demo
               </Button>
             </div>
             
@@ -75,6 +93,7 @@ const Hero = () => {
       
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
+    </>
   );
 };
 

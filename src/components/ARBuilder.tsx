@@ -1,9 +1,14 @@
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Smartphone, Camera, Layers, Move3D, Ruler, Palette, Share2 } from "lucide-react";
+import ARBuilderModal from "./ARBuilderModal";
+import DemoModal from "./DemoModal";
 
 const ARBuilder = () => {
+  const [isARBuilderOpen, setIsARBuilderOpen] = useState(false);
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
   const features = [
     {
       icon: Camera,
@@ -47,6 +52,9 @@ const ARBuilder = () => {
   ];
 
   return (
+    <>
+      <ARBuilderModal open={isARBuilderOpen} onOpenChange={setIsARBuilderOpen} />
+      <DemoModal open={isDemoOpen} onOpenChange={setIsDemoOpen} />
     <section id="ar-builder" className="py-20 bg-gradient-hero">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
@@ -98,8 +106,12 @@ const ARBuilder = () => {
                   </div>
                 </div>
 
-                <Button variant="hero" className="w-full mt-6">
-                  Download Mobile App
+                <Button 
+                  variant="hero" 
+                  className="w-full mt-6"
+                  onClick={() => setIsARBuilderOpen(true)}
+                >
+                  Start AR Builder
                 </Button>
               </div>
             </div>
@@ -145,10 +157,18 @@ const ARBuilder = () => {
               Join thousands of builders already using our AR technology to create amazing properties.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="lg">
+              <Button 
+                variant="hero" 
+                size="lg"
+                onClick={() => setIsARBuilderOpen(true)}
+              >
                 Start AR Builder
               </Button>
-              <Button variant="secondary" size="lg">
+              <Button 
+                variant="secondary" 
+                size="lg"
+                onClick={() => setIsDemoOpen(true)}
+              >
                 Watch Demo
               </Button>
             </div>
@@ -156,6 +176,7 @@ const ARBuilder = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
