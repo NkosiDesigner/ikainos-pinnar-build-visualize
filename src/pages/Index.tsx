@@ -1,8 +1,13 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
+import ForPropertyManagers from "@/components/ForPropertyManagers";
+import ForHomeowners from "@/components/ForHomeowners";
+import ARVisualizationFlow from "@/components/ARVisualizationFlow";
 import PropertyDashboard from "@/components/PropertyDashboard";
-import ARBuilder from "@/components/ARBuilder";
+import TenantLeasing from "@/components/TenantLeasing";
+import MarketplaceShowcase from "@/components/MarketplaceShowcase";
 import CostCalculator from "@/components/CostCalculator";
+import PlatformStatistics from "@/components/PlatformStatistics";
 import Directory from "@/components/Directory";
 
 const Index = () => {
@@ -10,9 +15,13 @@ const Index = () => {
     <div className="min-h-screen">
       <Navigation />
       <Hero />
-      <PropertyDashboard />
-      <ARBuilder />
+      <ForPropertyManagers />
+      <ForHomeowners />
+      <ARVisualizationFlow />
+      <TenantLeasing />
+      <MarketplaceShowcase />
       <CostCalculator />
+      <PlatformStatistics />
       <Directory />
       
       <footer className="bg-secondary text-secondary-foreground py-16">
@@ -21,16 +30,23 @@ const Index = () => {
             <div>
               <h3 className="text-xl font-bold mb-4 text-primary">Ikainos Pinnar</h3>
               <p className="text-secondary-foreground/80">
-                Revolutionizing property management with AR technology and AI-powered insights.
+                Revolutionizing Zimbabwe's property management with AR technology and AI-powered insights.
               </p>
+              <div className="mt-4 space-y-2">
+                <p className="text-sm text-secondary-foreground/60">Partners:</p>
+                <div className="flex flex-col gap-1">
+                  <span className="text-primary font-semibold">West Prop</span>
+                  <span className="text-primary font-semibold">Kern Sharpe</span>
+                </div>
+              </div>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Platform</h4>
               <ul className="space-y-2 text-secondary-foreground/80">
-                <li><a href="#properties" className="hover:text-primary transition-colors">Properties</a></li>
-                <li><a href="#ar-builder" className="hover:text-primary transition-colors">AR Builder</a></li>
-                <li><a href="#calculator" className="hover:text-primary transition-colors">Calculator</a></li>
-                <li><a href="#directory" className="hover:text-primary transition-colors">Directory</a></li>
+                <li><a href="#property-managers" className="hover:text-primary transition-colors">Property Managers</a></li>
+                <li><a href="#homeowners" className="hover:text-primary transition-colors">Homeowners</a></li>
+                <li><a href="#ar-flow" className="hover:text-primary transition-colors">AR Visualization</a></li>
+                <li><a href="#marketplace" className="hover:text-primary transition-colors">Marketplace</a></li>
               </ul>
             </div>
             <div>

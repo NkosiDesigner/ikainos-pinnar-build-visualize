@@ -20,13 +20,12 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl lg:text-7xl font-bold text-primary-foreground mb-6">
-              Build Your Dream
-              <span className="text-primary block">With AR & AI</span>
+              Transform Zimbabwe's
+              <span className="text-primary block">Property Future</span>
             </h1>
             
             <p className="text-xl text-primary-foreground/80 mb-8 leading-relaxed">
-              Visualize, calculate, and manage your property projects with cutting-edge AR technology. 
-              Get accurate cost estimates and connect with trusted contractors.
+              Revolutionary AR & AI platform for property management, construction visualization, and tenant leasing in Zimbabwe. Partner with West Prop and Kern Sharpe.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
