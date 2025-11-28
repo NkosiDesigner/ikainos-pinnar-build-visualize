@@ -14,7 +14,143 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      bookings: {
+        Row: {
+          created_at: string | null
+          id: string
+          notes: string | null
+          property_id: string
+          reminder_sent: boolean | null
+          status: Database["public"]["Enums"]["booking_status"] | null
+          tenant_email: string
+          tenant_name: string
+          tenant_phone: string | null
+          time_slot_id: string
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          notes?: string | null
+          property_id: string
+          reminder_sent?: boolean | null
+          status?: Database["public"]["Enums"]["booking_status"] | null
+          tenant_email: string
+          tenant_name: string
+          tenant_phone?: string | null
+          time_slot_id: string
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          notes?: string | null
+          property_id?: string
+          reminder_sent?: boolean | null
+          status?: Database["public"]["Enums"]["booking_status"] | null
+          tenant_email?: string
+          tenant_name?: string
+          tenant_phone?: string | null
+          time_slot_id?: string
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "bookings_property_id_fkey"
+            columns: ["property_id"]
+            isOneToOne: false
+            referencedRelation: "properties"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "bookings_time_slot_id_fkey"
+            columns: ["time_slot_id"]
+            isOneToOne: true
+            referencedRelation: "tour_time_slots"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      properties: {
+        Row: {
+          address: string
+          created_at: string | null
+          description: string | null
+          id: string
+          image_url: string | null
+          manager_id: string | null
+          name: string
+          price: number | null
+          property_type: string
+          updated_at: string | null
+        }
+        Insert: {
+          address: string
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          manager_id?: string | null
+          name: string
+          price?: number | null
+          property_type: string
+          updated_at?: string | null
+        }
+        Update: {
+          address?: string
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          manager_id?: string | null
+          name?: string
+          price?: number | null
+          property_type?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      tour_time_slots: {
+        Row: {
+          created_at: string | null
+          end_time: string
+          id: string
+          is_available: boolean | null
+          max_attendees: number | null
+          property_id: string
+          start_time: string
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          end_time: string
+          id?: string
+          is_available?: boolean | null
+          max_attendees?: number | null
+          property_id: string
+          start_time: string
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          end_time?: string
+          id?: string
+          is_available?: boolean | null
+          max_attendees?: number | null
+          property_id?: string
+          start_time?: string
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "tour_time_slots_property_id_fkey"
+            columns: ["property_id"]
+            isOneToOne: false
+            referencedRelation: "properties"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +159,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      booking_status: "pending" | "confirmed" | "cancelled" | "completed"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +286,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      booking_status: ["pending", "confirmed", "cancelled", "completed"],
+    },
   },
 } as const
