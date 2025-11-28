@@ -1,12 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { Building2, Calculator, Users, Smartphone } from "lucide-react";
-
+import { Calculator, Users, Smartphone } from "lucide-react";
 const Navigation = () => {
-  return (
-    <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm border-b border-border z-50">
+  return <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm border-b border-border z-50">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Building2 className="h-8 w-8 text-primary" />
+          
           <div className="flex flex-col">
             <span className="text-xl font-bold text-foreground">Ikainos Pinnar</span>
             <span className="text-xs text-muted-foreground">Zimbabwe Property Platform</span>
@@ -33,8 +31,6 @@ const Navigation = () => {
           <Button variant="hero">Get Started</Button>
         </div>
       </div>
-    </nav>
-  );
+    </nav>;
 };
-
 export default Navigation;
