@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Ruler, Eye, Calculator, Palette, ArrowRight } from "lucide-react";
 import ARBuilderModal from "./ARBuilderModal";
+import ARBuildingDemo from "./ARBuildingDemo";
 
 const ARVisualizationFlow = () => {
   const [isARBuilderOpen, setIsARBuilderOpen] = useState(false);
@@ -83,6 +84,11 @@ const ARVisualizationFlow = () => {
               Start AR Visualization
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
+          </div>
+
+          {/* Interactive Demo */}
+          <div className="mt-20">
+            <ARBuildingDemo />
           </div>
         </div>
       </section>
