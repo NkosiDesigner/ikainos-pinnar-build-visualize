@@ -7,21 +7,24 @@ const Navigation = () => {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Building2 className="h-8 w-8 text-primary" />
-          <span className="text-xl font-bold text-foreground">Ikainos Pinnar</span>
+          <div className="flex flex-col">
+            <span className="text-xl font-bold text-foreground">Ikainos Pinnar</span>
+            <span className="text-xs text-muted-foreground">Zimbabwe Property Platform</span>
+          </div>
         </div>
         
         <div className="hidden md:flex items-center gap-8">
-          <a href="#properties" className="text-foreground hover:text-primary transition-colors">
-            Properties
+          <a href="#property-managers" className="text-foreground hover:text-primary transition-colors">
+            For Managers
           </a>
-          <a href="#ar-builder" className="text-foreground hover:text-primary transition-colors">
-            AR Builder
+          <a href="#homeowners" className="text-foreground hover:text-primary transition-colors">
+            For Builders
           </a>
-          <a href="#calculator" className="text-foreground hover:text-primary transition-colors">
-            Cost Calculator
+          <a href="#ar-flow" className="text-foreground hover:text-primary transition-colors">
+            AR Visualization
           </a>
-          <a href="#directory" className="text-foreground hover:text-primary transition-colors">
-            Directory
+          <a href="#marketplace" className="text-foreground hover:text-primary transition-colors">
+            Marketplace
           </a>
         </div>
         
